@@ -1,0 +1,42 @@
+<app-nav></app-nav>
+<main class="text-center">
+  <figure id="profilepicture">
+      <img src="../../assets/profilepicture.jpeg" alt="This is a picture of the developer of this website.">
+  </figure>
+  <article>
+      <h2>About</h2>
+      <p class="largeParagraph">
+          Hello, My name is Luis Ramirez and I am a software engineer with 
+          experience developing mobile and web applications. This website will showcase the 
+          applications that I have developed and will provide links to the source code to my projects. 
+          To contact me, please enter your email in the below form and I will respond promply.  
+      </p>
+      <form class="m-3" action="http://www.luisr.sgedu.site/portfolio/php/sendEmail.php" method="POST">
+          <input type="email" name="email" required/>
+          <input class="ml-3" type="submit" name="submit" value="Say Hi!"/>
+      </form>
+  </article>
+  <article>
+      <p>Below are some of the technologies that I have experience with:</p>
+      <div class="container-fluid">
+        <ul>
+            <div class="row my-5">
+                <li class="col-sm">HTML</li>
+                <li class="col-sm">CSS</li>
+                <li class="col-sm">Javascript</li>
+            </div>
+            <div class="row mb-5">
+                <li class="col-sm">Java</li>
+                <li class="col-sm">Swift</li>
+                <li class="col-sm">Angular</li>
+            </div>
+            <div class="row mb-5">
+                <li class="col-sm">React</li>
+                <li class="col-sm">ReactNative</li>
+                <li class="col-sm">Knockout.js</li>
+            </div>
+        </ul>
+    </div>
+  </article>
+</main>
+<app-footer></app-footer>
