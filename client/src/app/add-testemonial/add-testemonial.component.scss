@@ -1,0 +1,27 @@
+form {
+    width: 75%; 
+    margin: 50px auto; 
+}
+
+form > * {
+    padding: 10px; 
+}
+
+#formElements > * {
+    padding: 15px; 
+}
+
+#formElements {
+    display: flex;
+    flex-direction: column;
+}
+
+.errorMessage {
+    display: none;
+    border-style: solid;
+    border-color: white;
+    border-width: 1px;
+    color: white;
+    background-color: red;
+    font-size: 12px;
+}

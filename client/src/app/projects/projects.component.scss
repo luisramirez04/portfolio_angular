@@ -1,0 +1,46 @@
+table {
+    width: 100%;
+    table-layout: fixed;
+    color:white;
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+
+table > caption {
+    margin: 10px;
+}
+    
+thead {
+    background-color: #1f2833;
+    text-transform: uppercase;
+}
+
+thead th {
+    padding: 15px;
+}
+
+tbody {
+    background-color: #0b0c10;
+    text-align: center;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid white;
+    width: auto;
+}
+
+/* Gave this column more space to improve readability. */
+#descriptionColumn {
+    width: 40%;
+}
+
+#technologiesColumn {
+    width: 20%;
+}
+
+/*Added class with additional styling to improve readability of the long descriptions. */
+.projectDescription {
+    text-align: left;
+    line-height: 20px;
+}
