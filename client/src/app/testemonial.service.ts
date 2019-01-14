@@ -5,13 +5,13 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class TestemonialService {
-  testemonials = [];
+  testemonials: any[];
 
   constructor(private http: HttpClient) { }
 
   getTestemonials() {
-    this.http.get('http://localhost:3000/testemonials')
-    .subscribe((res) => this.testemonials
+    this.http.get<any[]>('http://localhost:3000/testemonials')
+    .subscribe((res) => this.testemonials = res
     );
   }
 

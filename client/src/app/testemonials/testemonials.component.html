@@ -1,14 +1,17 @@
 <app-nav></app-nav>
+<main class="text-center">
 <ng-container *ngIf="testemonialService?.testemonials;else first">
   <h2>Here is what people have to say about me!</h2>
   <div *ngFor="let testemonial of testemonialService.testemonials">
     <p>{{testemonial.comments}}</p>
     <h4>{{testemonial.name}}</h4>
+    <hr class="hrWhite">
   </div>
 </ng-container>
 <ng-template #first>
   <p>Be the first to write a testemonial!</p>
 </ng-template>
 <button type="button" class="btn btn-primary btn-lg" routerLink="/add-testemonial">Add</button>
+</main>
 
 <app-footer></app-footer>
