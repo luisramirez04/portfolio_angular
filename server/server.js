@@ -9,6 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
 var Testemonial = require('./models/Testemonial');
+var Email = require('./models/Email');
 
 app.use(cors());
 
@@ -24,6 +25,17 @@ app.post("/testemonials", (req, res) => {
     testemonial.save((err, result) => {
         if (err) {
         console.log("error posting testemonial");
+        }
+    });
+});
+
+app.post('/email', (req, res) => {
+    var emailData = req.body;
+    var email = new Email(emailData);
+
+    email.save((err, result) => {
+        if (err) {
+            console.log("Error sending email");
         }
     });
 });

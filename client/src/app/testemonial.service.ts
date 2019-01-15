@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,11 +8,14 @@ import { HttpClient } from '@angular/common/http';
 export class TestemonialService {
   testemonials: any[];
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   getTestemonials() {
     this.http.get<any[]>('http://localhost:3000/testemonials')
-    .subscribe((res) => this.testemonials = res
+    .subscribe((res) => {
+      this.testemonials = res;
+      this.router.navigate(['/testemonials']);
+    }
     );
   }
 

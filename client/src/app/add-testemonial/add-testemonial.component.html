@@ -1,26 +1,38 @@
 <app-nav></app-nav>
-<main>
+<main class="text-center">
     <h2>Please fill out the form below to enter your own testemonial.</h2>
-    <form>
-        <div id="formElements">
+    <form #testemonialForm="ngForm">
+        <div id="formElements" class="form-group">
             <label for="name">Name</label>
-            <input type="text" class="form-control" id="name" [(ngModel)]="newTestemonialData.name" name="name" placeholder="Name (Optional)">
-            <span class="errorMessage" id="nameError">Please enter a valid name.</span>
+            <input type="text"  id="name" name="name" class="form-control" 
+                    [(ngModel)]="newTestemonialData.name" 
+                    minlength="2" pattern="^[a-zA-Z]+$" #name="ngModel"
+                    placeholder="Name (Optional)">
+            <span *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">Please enter a valid name.</span>
 
             <label for="email">Email</label>
-            <input type="email" [(ngModel)]="newTestemonialData.email" id="email" name="email" placeholder="Your email to say thanks (Optional). This will not be displayed">
-            <span class="errorMessage" id="emailError">Please enter a valid email.</span>
+            <input type="email" id="email" name="email" class="form-control" 
+                    [(ngModel)]="newTestemonialData.email" #email="ngModel"
+                    email 
+                    placeholder="Your email to say thanks (Optional). This will not be displayed">
+            <span *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">Please enter a valid email.</span>
             
             <label for="phone">Phone Number (xxx-xxx-xxxx)</label>
-            <input type="text" [(ngModel)]="newTestemonialData.phone" id="phone" name="phone" placeholder="Your phone number to say thanks (Optional). This will not be displayed">
-            <span class="errorMessage" id="phoneError">Please enter a valid phone number in the following format: XXX-XXX-XXXX</span>
+            <input type="text" id="phone" name="phone" 
+                    [(ngModel)]="newTestemonialData.phone"  #phone="ngModel"
+                    pattern="\d{3}[\-]\d{3}[\-]\d{4}"
+                    placeholder="Your phone number to say thanks (Optional). This will not be displayed">
+            <span *ngIf="phone.invalid && (phone.dirty || phone.touched)" class="alert alert-danger">Please enter a valid phone number in the following format: XXX-XXX-XXXX</span>
             
             <label for="Comments">Comments (Required)</label>
-            <input type="text" [(ngModel)]="newTestemonialData.comments" id="comments" name="comments" placeholder="Enter your kind words here..." required>
-            <span class="errorMessage" id="commentsError">Please enter a comment.</span>
+            <input type="text" id="comments" name="comments"
+                    [(ngModel)]="newTestemonialData.comments" #comments="ngModel"
+                    required
+                    placeholder="Enter your kind words here...">
+            <span *ngIf="comments.invalid && (comments.dirty || comments.touched)" class="alert alert-danger">Please enter a comment.</span>
             <br>
         </div>
-            <button type="submit" class="btn btn-primary btn-sm" value="Submit" (click)="post()"></button>
+            <button type="submit" [disabled]="!testemonialForm.valid" class="btn btn-primary" (click)="post()">Submit</button>
     </form>
 </main>
 <app-footer></app-footer>

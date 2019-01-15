@@ -11,9 +11,13 @@
           applications that I have developed and will provide links to the source code to my projects. 
           To contact me, please enter your email in the below form and I will respond promply.  
       </p>
-      <form class="m-3" action="http://www.luisr.sgedu.site/portfolio/php/sendEmail.php" method="POST">
-          <input type="email" name="email" required/>
-          <input class="ml-3" type="submit" name="submit" value="Say Hi!"/>
+      <form #emailForm="ngForm" class="m-3">
+        <input type="email" name="email" class="form-control" 
+        [(ngModel)]="emailToSend.email" #email="ngModel"
+        email  
+        placeholder="Your Email">
+        <span *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">Please enter a valid email.</span>
+        <button class="ml-3" type="submit" [disabled]="!emailForm.valid" name="submit" (click)="post()">Say Hi!</button>
       </form>
   </article>
   <article>
