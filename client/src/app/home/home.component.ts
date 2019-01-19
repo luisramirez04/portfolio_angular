@@ -14,8 +14,16 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {}
 
-  post() {
+  post(emailForm: any) {
     this.emailService.postEmail(this.emailToSend);
+    emailForm.reset();
+    var x = document.getElementById("snackbar");
+
+    // Add the "show" class to DIV
+    x.className = "show";
+
+    // After 3 seconds, remove the show class from DIV
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
   }
 
 }

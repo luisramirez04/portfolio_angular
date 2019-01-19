@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
@@ -14,13 +15,12 @@ export class TestemonialService {
     this.http.get<any[]>('http://localhost:3000/testemonials')
     .subscribe((res) => {
       this.testemonials = res;
-      this.router.navigate(['/testemonials']);
     }
     );
   }
 
   postTestemonial(newTestemonialData) {
-    this.http.post('http://localhost:3000/testemonials', newTestemonialData).subscribe(res => {
-    })
-  }
+    this.http.post('http://localhost:3000/testemonials', newTestemonialData)
+      .subscribe(res => this.router.navigate(["/testemonials"]));
+  } 
 }

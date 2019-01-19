@@ -2,14 +2,17 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var cors = require('cors');
 var mongoose = require('mongoose');
+const { body, validationResult } = require('express-validator/check');
+const { sanitizeBody } = require('express-validator/filter');
+
+var Testemonial = require('./models/Testemonial');
+var Email = require('./models/Email');
+
 
 var app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
-
-var Testemonial = require('./models/Testemonial');
-var Email = require('./models/Email');
 
 app.use(cors());
 
@@ -19,15 +22,15 @@ app.get("/testemonials", async(req, res) => {
 })
 
 app.post("/testemonials", (req, res) => {
-    var testemonialData = req.body;
-    var testemonial = new Testemonial(testemonialData);
-    
+    let testemonialData = req.body; 
+    let testemonial = new Testemonial(testemonialData);
     testemonial.save((err, result) => {
-        if (err) {
-        console.log("error posting testemonial");
+        if (!err) {
+        res.status(200).json({"testemonial": "Testemonial added successfully"});
         }
-    });
+    })
 });
+
 
 app.post('/email', (req, res) => {
     var emailData = req.body;

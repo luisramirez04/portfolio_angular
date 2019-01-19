@@ -17,8 +17,9 @@
         email  
         placeholder="Your Email">
         <span *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">Please enter a valid email.</span>
-        <button class="ml-3" type="submit" [disabled]="!emailForm.valid" name="submit" (click)="post()">Say Hi!</button>
+        <button class="ml-3" type="submit" [disabled]="!emailForm.valid" name="submit" (click)="post(emailForm)">Say Hi!</button>
       </form>
+      <div id="snackbar">Thank you for your email!</div>
   </article>
   <article>
       <p>Below are some of the technologies that I have experience with:</p>
