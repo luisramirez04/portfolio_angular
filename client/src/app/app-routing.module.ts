@@ -8,6 +8,7 @@ import { TestemonialsComponent } from './testemonials/testemonials.component';
 import { AddTestemonialComponent } from './add-testemonial/add-testemonial.component';
 
 const routes: Routes = [
+  { path: "", component: HomeComponent },
   { path: "home", component: HomeComponent },
   { path: "interests", component: InterestsComponent },
   { path: "projects", component: ProjectsComponent },
