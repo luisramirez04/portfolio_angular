@@ -2,7 +2,7 @@
 
 ### This is a rewrite of my METCS 601 final project using the MEAN stack. 
 
-### How to use
+## How to use
 
 ### Step 1: Download and unzip project.  
 ### Step 2: On the command line, navigate to project's server directory. 
