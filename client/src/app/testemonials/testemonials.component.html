@@ -1,6 +1,6 @@
 <app-nav></app-nav>
 <main class="text-center">
-<ng-container *ngIf="testemonialService?.testemonials;else first">
+<ng-container *ngIf="testemonialService?.testemonials?.length > 0;else first">
   <h2>Here is what people have to say about me!</h2>
   <div *ngFor="let testemonial of testemonialService.testemonials">
     <p>{{testemonial.comments}}</p>

@@ -7,6 +7,7 @@ const { sanitizeBody } = require('express-validator/filter');
 
 var Testemonial = require('./models/Testemonial');
 var Email = require('./models/Email');
+var auth = require('./config');
 
 
 var app = express();
@@ -44,6 +45,6 @@ app.post('/email', (req, res) => {
 });
 
 
-mongoose.connect('mongodb://admin:shoe4992@ds013941.mlab.com:13941/portfolio_db');
+mongoose.connect('mongodb://'+auth.username+':'+auth.password+'@ds013941.mlab.com:13941/portfolio_db');
 
 app.listen(3000);
